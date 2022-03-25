@@ -1,0 +1,46 @@
+# DataSource Config
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/vueblog?useUnicode=true&useSSL=false&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: root
+    password: 8871527yhk
+    resources:
+      static-locations: classpath:/static/
+      #模版配置
+    thymeleaf:
+      cache: false
+      prefix: classpath:/templates/
+      suffix: .html
+      mode: HTML5
+      encoding: UTF-8
+      #    热部署
+      devtools:
+        restart:
+          #      是否启用重启
+          enabled: true
+          #      设置重启的目录
+          additional-paths: src/main/java
+          #classpath目录下的WEB-INF文件夹内容修改不重启
+          spring.devtools.restart.exclude: WEB-INF/**
+    #      指定程序的配置文件
+    #  profiles: dev
+
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**Mapper.xml
+
+server:
+  port: 8081
+
+shiro-reids:
+  enabled: true
+  redis-manager:
+    host: 127.0.0.1:6379
+markerhub:
+  jwt:
+    # 加密秘钥
+    secret: f4e2e52034348f86b67cde581c0f9eb5
+    # token有效时长，7天，单位秒
+    expire: 604800
+    header: Authorization
+
