@@ -48,7 +48,7 @@ public class AccountController {
 //            ServletOutputStream outputStream = response.getOutputStream();
 //            outputStream.write(result.getBytes());
         }
-        //判断账号密码是否错误 因为是md5加密所以这里md5判断
+        //判断账号密码是否错误 因为是md5加密所以这里md5判断,数据库中应该存储md5加密后的密码
 //        if(!user.getPassword().equals(SecureUtil.md5(loginDto.getPassword()))){
         if(!user.getPassword().equals(loginDto.getPassword())){
             //密码不同则抛出异常
